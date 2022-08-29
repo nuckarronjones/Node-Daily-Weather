@@ -43,15 +43,17 @@ app.post("/", (req, res) => {
     if (!err) {
       console.log(body);
 
-      console.log(URI);
+      //console.log(URI);
 
-      res.render("results.ejs", { city: req.body.search.toUpperCase(), weatherData: body });
+      res.render("results.ejs", {
+        city: req.body.search.toUpperCase(),
+        weatherData: body,
+      });
     } else {
       res.end("There was an error");
     }
   });
 });
-
 
 //404 error if no other pages are found first
 app.get("/404", (req, res) => {
