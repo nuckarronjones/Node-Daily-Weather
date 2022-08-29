@@ -37,7 +37,7 @@ app.post("/", (req, res) => {
 
   location = req.body.search;
 
-  const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}`;
+  const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}&units=imperial`;
 
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {

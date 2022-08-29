@@ -10,7 +10,7 @@
         <form action="/" method="POST">
           <%-include ("./partials/innerForm.ejs") %>
         </form>
-        
+
         <h2 id="cityTitle"><%=city %></h2>
 
         <div class="row mt-4">
@@ -21,15 +21,18 @@
             <p>Weather: <%=weatherData.weather[0].description %></p>
             <p>Sunset: <%=weatherData.sys.sunset %></p>
           </div>
-          <div class="col-6 mt-2 d-flex justify-content-center align-items-center">
+          <div
+            class="col-6 mt-2 d-flex justify-content-center align-items-center"
+          >
             <div class="row">
-                <div class="col-6">
-                    <h1><i class="bi bi-cloud"></i></h1>
-                </div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
-                   <h1><%=weatherData.main.temp %>ºF</h1> 
-                </div>
-                
+              <div class="col-6">
+                <h1><i class="bi bi-cloud"></i></h1>
+              </div>
+              <div
+                class="col-6 d-flex justify-content-center align-items-center"
+              >
+                <h1><%=weatherData.main.temp %>ºF</h1>
+              </div>
             </div>
           </div>
         </div>
