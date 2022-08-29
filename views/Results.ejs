@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include ("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div id="crtvOverlay"></div>
+    <div id="pageContainer">
+      <div class="container">
+        <form action="/" method="POST">
+          <%-include ("./partials/innerForm.ejs") %>
+        </form>
+        
+        <h2 id="cityTitle"><%=city %></h2>
+
+        <div class="row mt-4">
+          <div class="col-6 mt-2">
+            <p>Temperature Min: <%=weatherData.main.temp_min %></p>
+            <p>Temperature Max: <%=weatherData.main.temp_max %></p>
+            <p>Humidity: <%=weatherData.main.humidity %></p>
+            <p>Weather: <%=weatherData.weather[0].description %></p>
+            <p>Sunset: <%=weatherData.sys.sunset %></p>
+          </div>
+          <div class="col-6 mt-2 d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-6">
+                    <h1><i class="bi bi-cloud"></i></h1>
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                   <h1><%=weatherData.main.temp %>ºF</h1> 
+                </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
