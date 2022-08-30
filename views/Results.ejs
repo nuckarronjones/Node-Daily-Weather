@@ -6,93 +6,65 @@
   <body>
     <div id="crtvOverlay"></div>
     <div id="pageContainer">
-      <div class="container">
+      <div class="container glitch">
         <form action="/" method="POST">
           <%-include ("./partials/innerForm.ejs") %>
         </form>
 
-        <h2 id="cityTitle"> <span class=" glitch"><%=city %></span></h2>
+        <h2 id="cityTitle" data-weather="<%=city %>"></h2>
 
         <div class="row mt-4">
-          <div class="col-6 mt-2 glitch">
-            <p class="glitch">Temperature Min: <%=weatherData.main.temp_min %></p>
-            <p class="glitch">Temperature Max: <%=weatherData.main.temp_max %></p>
-            <p class="glitch">Humidity: <%=weatherData.main.humidity %></p>
-            <p class="glitch">Weather: <%=weatherData.weather[0].description %></p>
+          <div class="col-6 mt-2">
+            <p id="tempMin" data-weather="<%=weatherData.main.temp_min %>">
+              
+            </p>
+            <p id="tempMax" data-weather="<%=weatherData.main.temp_max %>">
+              
+            </p>
+            <p id="humidity" data-weather="<%=weatherData.main.humidity %>"></p>
+            <p id="weather" data-weather="<%=weatherData.weather[0].description %>">
+              
+            </p>
           </div>
           <div
             class="col-6 mt-2 d-flex justify-content-center align-items-center"
           >
             <div class="row">
               <div class="col-6">
-                <!-- <h1><i class="bi bi-cloud"></i>weatherData.weather[0].description -->
-                  
-                <!-- <% switch ('rain') { case 'snow' : %>
-                <% case 'few clouds' : %>
-                <i class="bi bi-cloud-sun weatherIcon "></i>
-                <% break; case 'scattered clouds' : %>
-                <i class="bi bi-cloud weatherIcon "></i>
-                <% break; case 'broken clouds' : %>
-                <i class="bi bi-clouds weatherIcon "></i>
-                <% break; case 'shower rain' : %>
-                <i class="bi bi-cloud-drizzle weatherIcon "></i>
-                <% break; case 'rain' : %>
-                <i class="bi bi-cloud-rain-heavy weatherIcon "></i>
-                <% break; case 'thunderstorm' : %>
-                <i class="bi bi-cloud-lightning weatherIcon "></i>
-                <% break; case 'snow' : %>
-                <i class="bi bi-cloud-snow "></i>
-                <% break; case 'mist' : %>
-                <i class="bi bi-cloud-fog "></i>
-                <% break; } %> -->
-
-                <% switch ("snow") {
-                  case 'clear sky' : %>
-                          <i class="bi bi-cloud-sun weatherIcon glitch"></i>
-                          <% break;
-                  
-                  case 'few clouds' : %>
-                          <i class="bi bi-cloud-sun weatherIcon glitch"></i>
-                          <% break;
-                  
-                  case 'scattered clouds' : %>
-                          <i class="bi bi-clouds weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'broken clouds' : %>
-                          <i class="bi bi-clouds weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'shower rain' : %>
-                          <i class="bi bi-cloud-drizzle weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'rain' : %>
-                          <i class="bi bi-cloud-rain-heavy weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'snow' : %>
-                          <i class="bi bi-cloud-snow weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'mist' : %>
-                          <i class="bi bi-cloud-fog weatherIcon glitch"></i>
-                          <% break;
-
-                  case 'thunderstorm' : %>
-                          <i class="bi bi-cloud-lightning weatherIcon glitch"></i>
-                          <% break;
-                  } %>
+                <div id="weatherBoxIcon">
+                  <% switch ("thunderstorm") { case 'clear sky' : %>
+                  <i class="bi bi-cloud-sun weatherIcon "></i>
+                  <% break; case 'few clouds' : %>
+                  <i class="bi bi-cloud-sun weatherIcon "></i>
+                  <% break; case 'scattered clouds' : %>
+                  <i class="bi bi-clouds weatherIcon "></i>
+                  <% break; case 'broken clouds' : %>
+                  <i class="bi bi-clouds weatherIcon "></i>
+                  <% break; case 'shower rain' : %>
+                  <i class="bi bi-cloud-drizzle weatherIcon "></i>
+                  <% break; case 'rain' : %>
+                  <i class="bi bi-cloud-rain-heavy weatherIcon "></i>
+                  <% break; case 'snow' : %>
+                  <i class="bi bi-cloud-snow weatherIcon "></i>
+                  <% break; case 'mist' : %>
+                  <i class="bi bi-cloud-fog weatherIcon "></i>
+                  <% break; case 'thunderstorm' : %>
+                  <i class="bi bi-cloud-lightning weatherIcon "></i>
+                  <% break; } %>
+                </div>
               </div>
               <div
                 class="col-6 d-flex justify-content-center align-items-center"
               >
-                <h1 class="glitch"><%= Math.trunc(weatherData.main.temp) %>ºF</h1>
+                <h1 class="glitch">
+                  <%= Math.trunc(weatherData.main.temp) %>ºF
+                </h1>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="/js.js" type="text/javascript"></script>
   </body>
 </html>
