@@ -26,3 +26,5 @@ npm install
 ## User Interface
 - Once you get the confirmation the server is running, navigate to localhost:3000 on any internet browser
 - Simply type in a city into the searchbox to view weather data
+
+![alt text](https://github.com/nuckarronjones/Node-Daily-Weather/blob/main/public/assets/interface.PNG?raw=true)
