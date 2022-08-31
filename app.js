@@ -33,7 +33,7 @@ app.get("/weather", (req, res) => {
 app.post("/", (req, res) => {
   console.log("posted");
 
-  console.log(req.body);
+  //console.log(req.body);
 
   location = req.body.search;
 
@@ -41,7 +41,7 @@ app.post("/", (req, res) => {
 
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
-      console.log(body);
+      //console.log(body);
 
       //console.log(URI);
 

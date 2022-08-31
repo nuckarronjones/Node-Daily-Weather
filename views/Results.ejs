@@ -11,19 +11,23 @@
           <%-include ("./partials/innerForm.ejs") %>
         </form>
 
-        <h2 id="cityTitle" data-weather="<%=city %>"></h2>
+        <h2 id="cityTitle" class="typeWriter mt-5" data-weather="<%=city %>">
+          
+        </h2>
 
         <div class="row mt-4">
           <div class="col-6 mt-2">
-            <p id="tempMin" data-weather="<%=weatherData.main.temp_min %>">
-              
+            <p class="typeWriter" data-weather=" <%=weatherData.main.temp_min %>">
+              Temperature Min:
             </p>
-            <p id="tempMax" data-weather="<%=weatherData.main.temp_max %>">
-              
+            <p class="typeWriter" data-weather=" <%=weatherData.main.temp_max %>">
+              Temperature Max:
             </p>
-            <p id="humidity" data-weather="<%=weatherData.main.humidity %>"></p>
-            <p id="weather" data-weather="<%=weatherData.weather[0].description %>">
-              
+            <p class="typeWriter" data-weather=" <%=weatherData.main.humidity %>">
+              Humidity:
+            </p>
+            <p class="typeWriter" data-weather=" <%=weatherData.weather[0].description %>">
+              Description:
             </p>
           </div>
           <div
@@ -32,7 +36,8 @@
             <div class="row">
               <div class="col-6">
                 <div id="weatherBoxIcon">
-                  <% switch ("thunderstorm") { case 'clear sky' : %>
+                  <!-- weather.weather[0].description -->
+                  <% switch ("thunderstorm") { case 'snow' : %>
                   <i class="bi bi-cloud-sun weatherIcon "></i>
                   <% break; case 'few clouds' : %>
                   <i class="bi bi-cloud-sun weatherIcon "></i>
