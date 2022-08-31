@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const request = require("request");
 
-const APIKEY = "0878968b63d46921556ce3918394c568";
+const APIKEY = "";
 let location;
 
 //REGISTER VIEW ENGINE
@@ -31,19 +31,16 @@ app.get("/weather", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log("posted");
-
-  //console.log(req.body);
-
   location = req.body.search;
 
   const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}&units=imperial`;
 
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
-      //console.log(body);
-
-      //console.log(URI);
+      if (body.cod == "404") {
+        //this is error handling if we DO get a response (unknown city for example), and theres not data we can use
+        res.render("404.ejs");
+      }
 
       res.render("results.ejs", {
         city: req.body.search.toUpperCase(),
