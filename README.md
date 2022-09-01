@@ -23,7 +23,7 @@ npm install
    node app
    ```
 
-## User Interface
+# 🤩User Interface
 - Once you get the confirmation the server is running, navigate to localhost:3000 on any internet browser
 - Simply type in a city into the searchbox to view weather data
 
