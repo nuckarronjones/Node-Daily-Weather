@@ -26,7 +26,7 @@ app.get("/weather", (req, res) => {
   //request module for calling API
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
-      res.render("results.ejs");
+      res.render("results");
     } else {
       res.end("There was an error");
     }
@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
     if (!err) {
       if (body.cod == "404") {
         //this is error handling if we DO get a response (unknown city for example), and theres not data we can use
-        res.render("404.ejs");
+        res.render("404");
       }
 
       res.render("results.ejs", {
@@ -57,7 +57,7 @@ app.post("/", (req, res) => {
 
 //404 error if no other pages are found first
 app.get("/404", (req, res) => {
-  res.render("404.ejs");
+  res.render("404");
 });
 
 //start local server
