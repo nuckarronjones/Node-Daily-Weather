@@ -49,7 +49,7 @@ app.post("/", (req, res) => {
       }
       console.log("sending results")
 
-      res.render("results.ejs", {
+      res.render("./results.ejs", {
         city: req.body.search.toUpperCase(),
         weatherData: body,
       });
