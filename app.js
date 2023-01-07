@@ -11,7 +11,7 @@ let location;
 
 //REGISTER VIEW ENGINE
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, '/views')); //if you have your views in another folder
+app.set('views', path.join(__dirname, '/views/')); //if you have your views in another folder
 
 //MIDDLEWARE
 app.use(express.static(path.join(__dirname, '/public')));
@@ -38,6 +38,8 @@ app.post("/", (req, res) => {
 
   const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}&units=imperial`;
 
+  console.log(URI)
+  
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
       if (body.cod == "404") {
