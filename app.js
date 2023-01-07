@@ -11,10 +11,10 @@ let location;
 
 //REGISTER VIEW ENGINE
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, '/views')); //if you have your views in another folder
+app.set('views', __dirname + '/views'); //if you have your views in another folder
 
 //MIDDLEWARE
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded());
 
 //ROUTES
@@ -49,7 +49,7 @@ app.post("/", (req, res) => {
       }
       console.log("sending results")
 
-      res.render("results", {
+      res.render("results.ejs", {
         city: req.body.search.toUpperCase(),
         weatherData: body,
       });
