@@ -42,15 +42,19 @@ app.post("/", (req, res) => {
   
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
+
       if (body.cod == "404") {
         //this is error handling if we DO get a response (unknown city for example), and theres not data we can use
         res.render("404");
       }
 
-      res.render("results", {
-        city: req.body.search.toUpperCase(),
-        weatherData: body,
-      });
+      // res.render("results", {
+      //   city: req.body.search.toUpperCase(),
+      //   weatherData: body,
+      // });
+
+      res.render("404");
+      
     } else {
       res.end("There was an error");
     }
