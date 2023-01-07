@@ -54,7 +54,7 @@ app.post("/", (req, res) => {
       //   weatherData: body,
       // });
 
-      res.render("index")
+      res.render("weather")
       
     } else {
       res.end("There was an error");
