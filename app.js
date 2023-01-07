@@ -22,16 +22,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/weather", (req, res) => {
-  //request module for calling API
-  request({ url: URI, json: true }, (err, response, body) => {
-    if (!err) {
-      res.render("results");
-    } else {
-      res.end("There was an error");
-    }
-  });
-});
+// app.get("/weather", (req, res) => {
+//   //request module for calling API
+//   request({ url: URI, json: true }, (err, response, body) => {
+//     if (!err) {
+//       res.render("results");
+//     } else {
+//       res.end("There was an error");
+//     }
+//   });
+// });
 
 app.post("/", (req, res) => {
   location = req.body.search;
@@ -48,12 +48,10 @@ app.post("/", (req, res) => {
         res.render("404");
       }
 
-      // res.render("results", {
-      //   city: req.body.search.toUpperCase(),
-      //   weatherData: body,
-      // });
-
-      res.render("results")
+      res.render("results", {
+        city: req.body.search.toUpperCase(),
+        weatherData: body,
+      });
       
     } else {
       res.end("There was an error");
