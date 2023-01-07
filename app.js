@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const request = require("request");
 let path = require('path');
+//env port for hosting service
 let port = process.env.PORT || 3000
 
 const APIKEY = "c20388b143431a9ec198a11d39355e04";
