@@ -11,9 +11,57 @@
           <%-include ("./partials/innerForm.ejs") %>
         </form>
 
-        <h2>Test</h2>
+        <h2 id="cityTitle" class="typeWriter mt-5 " data-weather="<%=city %>">
+          
+        </h2>
 
-
+        <div class="row mt-4" >
+          <div class="col-6 mt-2">
+            <p class="hideGlitch">Temperature Min: <span class="typeWriter" data-weather=" <%=weatherData.main.temp_min %>"></spam></p>
+            <p class="hideGlitch">Temperature Max: <span class="typeWriter" data-weather=" <%=weatherData.main.temp_max %>"></spam></p>
+            <p class="">Humidity: <span class="typeWriter" data-weather="<%=weatherData.main.humidity %>"></spam></p>
+            <p class="hideGlitch">Description: <span class="typeWriter" data-weather="<%=weatherData.weather[0].description %>"></spam></p>
+          </div>
+          <div
+            class="col-6 mt-2 d-flex justify-content-center align-items-center"
+          >
+            <div class="row ">
+              <div class="col-6 ">
+                <div id="weatherBoxIcon ">
+                  <% switch (weatherData.weather[0].description) { case 'snow' : %>
+                  <i class="bi bi-cloud-sun weatherIcon "></i>
+                  <% break; case 'few clouds' : %>
+                  <i class="bi bi-cloud-sun weatherIcon "></i>
+                  <% break; case 'clear sky' : %>
+                  <i class="bi bi-sun weatherIcon "></i>
+                  <% break; case 'scattered clouds' : %>
+                  <i class="bi bi-clouds weatherIcon "></i>
+                  <% break; case 'broken clouds' : %>
+                  <i class="bi bi-clouds weatherIcon "></i>
+                  <% break; case 'shower rain' : %>
+                  <i class="bi bi-cloud-drizzle weatherIcon "></i>
+                  <% break; case 'rain' : %>
+                  <i class="bi bi-cloud-rain-heavy weatherIcon "></i>
+                  <% break; case 'snow' : %>
+                  <i class="bi bi-cloud-snow weatherIcon "></i>
+                  <% break; case 'mist' : %>
+                  <i class="bi bi-cloud-fog weatherIcon "></i>
+                  <% break; case 'thunderstorm' : %>
+                  <i class="bi bi-cloud-lightning weatherIcon "></i>
+                  <% break; } %>
+                </div>
+              </div>
+              <div
+                class="col-6 d-flex justify-content-center align-items-center"
+              >
+                <h1>
+                  <%= Math.trunc(weatherData.main.temp) %>ºF
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
     <script src="/js.js" type="text/javascript"></script>

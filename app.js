@@ -49,12 +49,10 @@ app.post("/", (req, res) => {
       }
       console.log("sending results")
 
-      // res.render("./results.ejs", {
-      //   city: req.body.search.toUpperCase(),
-      //   weatherData: body,
-      // });
-
-      res.render("weather")
+      res.render("weather", {
+        city: req.body.search.toUpperCase(),
+        weatherData: body,
+      });
       
     } else {
       res.end("There was an error");
