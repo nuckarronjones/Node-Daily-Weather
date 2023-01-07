@@ -11,7 +11,7 @@ let location;
 
 //REGISTER VIEW ENGINE
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, '/views/')); //if you have your views in another folder
+app.set('views', path.join(__dirname, '/views')); //if you have your views in another folder
 
 //MIDDLEWARE
 app.use(express.static(path.join(__dirname, '/public')));
@@ -47,6 +47,7 @@ app.post("/", (req, res) => {
         //this is error handling if we DO get a response (unknown city for example), and theres not data we can use
         res.render("404");
       }
+      console.log("sending results")
 
       res.render("results", {
         city: req.body.search.toUpperCase(),
