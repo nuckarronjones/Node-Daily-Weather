@@ -53,7 +53,7 @@ app.post("/", (req, res) => {
       //   weatherData: body,
       // });
 
-      res.render("404");
+      res.render("results")
       
     } else {
       res.end("There was an error");
