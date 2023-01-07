@@ -9,7 +9,7 @@ let location;
 
 //REGISTER VIEW ENGINE
 app.set("view engine", "ejs");
-app.set("views", "views"); //if you have your views in another folder
+app.set('views', path.join(__dirname, './Views')); //if you have your views in another folder
 
 //MIDDLEWARE
 app.use(express.static("public"));
