@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const request = require("request");
+let path = require('path');
 let port = process.env.PORT || 3000
 
 const APIKEY = "c20388b143431a9ec198a11d39355e04";
@@ -9,7 +10,7 @@ let location;
 
 //REGISTER VIEW ENGINE
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, './Views')); //if you have your views in another folder
+app.set('views', path.join(__dirname, './views')); //if you have your views in another folder
 
 //MIDDLEWARE
 app.use(express.static("public"));
