@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const request = require("request");
+let port = process.env.PORT || 3000
 
 const APIKEY = "c20388b143431a9ec198a11d39355e04";
 let location;
@@ -58,6 +59,6 @@ app.get("/404", (req, res) => {
 });
 
 //start local server
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("App is listening on port 3000");
 });
