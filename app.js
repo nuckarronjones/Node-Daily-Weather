@@ -25,7 +25,7 @@ app.post("/", (req, res) => {
           res.render("404");
         }
         res.render("weather", {
-          city: req.body.search.toUpperCase(),
+          city: location.toUpperCase(),
           weatherData: body,
         });
       } else {
