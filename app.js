@@ -1,11 +1,12 @@
 const express = require("express");
-const app = express();
 const request = require("request");
-let path = require("path");
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
 let port = process.env.PORT || 3000;
 
-const APIKEY = "c20388b143431a9ec198a11d39355e04";
-let location;
+const app = express();
+let path = require("path");
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -18,9 +19,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  location = req.body.search;
-
-  const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}&units=imperial`;
+  const location = req.body.search;
+  const URI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`;
 
   request({ url: URI, json: true }, (err, response, body) => {
     if (!err) {
