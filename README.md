@@ -16,7 +16,7 @@ git cd [path name]
 npm install
 ```
 ### 4) Insert API key
-- In the "app.js" file, input your API key from openweather. You can obtain an API key from the following link https://openweathermap.org/price.
+- Create a .env folder in the base directory, and populate API_KEY={your key}. You can obtain an API key from the following link https://openweathermap.org/.
 - Please note, newly created API keys may take up to 2 hours to create and funciton. 
 ### 5) Run the application using the following command.
    ```
